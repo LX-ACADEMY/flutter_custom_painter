@@ -1,4 +1,4 @@
-import 'package:custom_smaple/custom_painter.dart';
+import 'package:custom_smaple/circle_painter.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         child: CustomPaint(
-          painter: TestPainter(),
+          painter: CirclePainter(),
         ),
       ),
     );
