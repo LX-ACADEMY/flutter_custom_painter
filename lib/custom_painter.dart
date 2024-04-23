@@ -13,20 +13,28 @@ class TestPainter extends CustomPainter {
     const halfSide = side / 2;
     final center = Offset(size.width / 2, size.height / 2);
 
+    final path = Path();
     final a1 = Offset(center.dx - halfSide, center.dy + halfSide);
     final a2 = Offset(center.dx + halfSide, center.dy + halfSide);
-    canvas.drawLine(a1, a2, paint);
-
     final b2 = Offset(a2.dx, a2.dy - side);
-    canvas.drawLine(a2, b2, paint);
-
     final c2 = Offset(center.dx, center.dy - side);
-    canvas.drawLine(b2, c2, paint);
-
     final d2 = Offset(center.dx - halfSide, center.dy - halfSide);
-    canvas.drawLine(c2, d2, paint);
 
-    canvas.drawLine(d2, a1, paint);
+    path.moveTo(a1.dx, a1.dy);
+    path.lineTo(a2.dx, a2.dy);
+    path.lineTo(b2.dx, b2.dy);
+    path.lineTo(c2.dx, c2.dy);
+    path.lineTo(d2.dx, d2.dy);
+    // path.close();
+    path.lineTo(a1.dx, a1.dy);
+
+    // canvas.drawLine(a1, a2, paint);
+    // canvas.drawLine(a2, b2, paint);
+    // canvas.drawLine(b2, c2, paint);
+    // canvas.drawLine(c2, d2, paint);
+    // canvas.drawLine(d2, a1, paint);
+
+    canvas.drawPath(path, paint);
   }
 
   @override
